@@ -26,6 +26,7 @@ public class HelloServlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
 
+        
         ServletContext context = getServletContext();
         String dbUrl = context.getInitParameter("dbUrl");
         String dbUser = context.getInitParameter("dbUser");
