@@ -1,7 +1,11 @@
 package com.example.test;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -21,6 +25,18 @@ public class HelloServlet extends HttpServlet {
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
+
+        ServletContext context = getServletContext();
+        String dbUrl = context.getInitParameter("dbUrl");
+        String dbUser = context.getInitParameter("dbUser");
+        String dbPassword = context.getInitParameter("dbPassword");
+
+        try {
+            Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            out.println("Connection successful!");
+        } catch (SQLException e) {
+            out.println("Connection failed: " + e.getMessage());
+        }
     }
 
     public void destroy() {
