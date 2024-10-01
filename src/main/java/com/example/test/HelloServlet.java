@@ -26,18 +26,6 @@ public class HelloServlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
 
-        
-        ServletContext context = getServletContext();
-        String dbUrl = context.getInitParameter("dbUrl");
-        String dbUser = context.getInitParameter("dbUser");
-        String dbPassword = context.getInitParameter("dbPassword");
-
-        try {
-            Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            out.println("Connection successful!");
-        } catch (SQLException e) {
-            out.println("Connection failed: " + e.getMessage());
-        }
     }
 
     public void destroy() {
