@@ -9,14 +9,37 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.List;
 
 public class EmployeeController extends HttpServlet {
     private final EmployeeDAO employeeDAO = new EmployeeDAO();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/employeeForm.jsp");
-        requestDispatcher.forward(request,response);
+        String action = request.getParameter("view");
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        RequestDispatcher requestDispatcher;
+
+        switch (action) {
+            case "home":
+                requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/home.jsp");
+                break;
+            case "add":
+                requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/employeeForm.jsp");
+                break;
+            case "employees":
+                List<Employee> employeeList = employeeDAO.getAllEmployees();
+                request.setAttribute("employees", employeeList);
+                requestDispatcher = request.getRequestDispatcher("index.jsp");
+                System.out.println("Employee List: " + employeeList);
+                break;
+            default:
+                requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/error.jsp");
+                break;
+        }
+
+        requestDispatcher.forward(request, response);
     }
+
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");

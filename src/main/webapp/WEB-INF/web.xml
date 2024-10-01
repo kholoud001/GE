@@ -25,6 +25,6 @@
 
     <servlet-mapping>
         <servlet-name>EmployeeController</servlet-name>
-        <url-pattern>/addEmployee</url-pattern>
+        <url-pattern>/employee</url-pattern>
     </servlet-mapping>
 </web-app>

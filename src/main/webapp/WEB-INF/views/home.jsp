@@ -1,7 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +15,8 @@
     <div class="header-content responsive-wrapper">
         <div class="header-logo">
             <div>
-                  <h1>Employee management system</h1>
-                </div>
+                <h1>Employee management system</h1>
+            </div>
         </div>
     </div>
 </header>
@@ -53,12 +50,12 @@
                                     <h3>${employee.name}</h3>
                                 </div>
                                 <div class="action">
-                                    <!-- Update Employee -->
-                                    <a href="#">
+                                    <!-- Update -->
+                                    <a href="updateEmployee?employeeId=${employee.id}">
                                         <i class="fas fa-pen-to-square"></i>
                                     </a>
-                                    <!-- Delete Employee -->
-                                    <a href="#">
+                                    <!-- Delete -->
+                                    <a href="deleteEmployee?employeeId=${employee.id}">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </div>
@@ -69,7 +66,7 @@
                                 <p>${employee.department}</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#">View more</a>
+                                <a href="viewEmployee?employeeId=${employee.id}">View more</a>
                             </div>
                         </article>
                     </c:forEach>
