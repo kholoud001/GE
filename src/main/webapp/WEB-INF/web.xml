@@ -17,4 +17,14 @@
         <param-name>dbPassword</param-name>
         <param-value>action</param-value>
     </context-param>
+
+    <servlet>
+        <servlet-name>EmployeeController</servlet-name>
+        <servlet-class>GE.controller.EmployeeController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EmployeeController</servlet-name>
+        <url-pattern>/addEmployee</url-pattern>
+    </servlet-mapping>
 </web-app>

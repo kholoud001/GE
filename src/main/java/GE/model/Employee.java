@@ -14,7 +14,13 @@ public class Employee {
 
 
     public Employee() {
-
+    }
+    public Employee( String name, String email, String phone, String position, String department) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.position = position;
+        this.department = department;
     }
 
     public String getName() {
