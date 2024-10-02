@@ -27,9 +27,33 @@ public class AddEmployeeServlet extends HttpServlet {
         String position = request.getParameter("position");
         String department = request.getParameter("department");
 
-        Employee employee = new Employee(name, email, phone, position, department);
-        employeeDAO.save(employee);
+        String errorMessage = validateEmployeeDetails(name, email, phone, position, department);
 
-        response.sendRedirect("/GE/employee");
+        if (errorMessage != null) {
+            request.setAttribute("errorMessage", errorMessage);
+            request.getRequestDispatcher("employeeForm.jsp").forward(request, response);
+        } else {
+            Employee employee = new Employee(name, email, phone, position, department);
+            employeeDAO.save(employee);
+            response.sendRedirect("/GE/employee");
+        }
     }
-}
+
+    private String validateEmployeeDetails(String name, String email, String phone, String position, String department) {
+        if (name == null || name.trim().isEmpty()) {
+            return "Name is required.";
+        }
+        if (email == null || !email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+            return "Please enter a valid email address.";
+        }
+        if (phone == null || !phone.matches("\\d{10}")) {
+            return "Phone number must be 10 digits.";
+        }
+        if (position == null || position.trim().isEmpty()) {
+            return "Position is required.";
+        }
+        if (department == null || department.trim().isEmpty()) {
+            return "Department is required.";
+        }
+        return null;
+    }}

@@ -10,7 +10,7 @@ body {
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 650px;
+    height: 670px;
     padding: 20px;
     width: 320px;
 }
@@ -57,6 +57,8 @@ body {
     padding: 4px 20px 0;
     width: 100%;
 }
+
+
 
 .cut {
     background-color: #15172b;
@@ -121,3 +123,14 @@ body {
 .submit:active {
     background-color: #06b;
 }
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+

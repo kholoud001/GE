@@ -1,4 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +14,11 @@
 <div class="form">
     <div class="title">Welcome</div>
     <div class="subtitle">Let's add an employee</div>
+
+    <c:if test="${not empty errorMessage}">
+        <div class="error">${errorMessage}</div>
+    </c:if>
+
     <form action="addEmployee" method="post">
         <div class="input-container ic1">
             <input id="name" name="name" class="input" type="text" placeholder=" " required/>

@@ -15,16 +15,15 @@
 <body>
 <header class="header">
     <div class="header-content responsive-wrapper">
-        <div class="header-logo">
-            <h1>Employee Management System</h1>
-        </div>
+            <a href="<%= request.getContextPath() %>/employee">
+                <h1>Employee Management System</h1>
+            </a>
     </div>
 </header>
 
 <main class="main">
     <div class="responsive-wrapper">
         <div class="main-header">
-            <div></div>
             <div class="search">
                 <form action="${pageContext.request.contextPath}/searchEmployee" method="get">
                     <input type="text" name="search" placeholder="Search by name, email, department, or position" value="${param.search}"/>
@@ -32,29 +31,6 @@
                     <button type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                </form>
-            </div>
-            <div class="filter">
-                <!-- Filter by Department -->
-                <form action="${pageContext.request.contextPath}/filterEmployees" method="get">
-                    <select name="department">
-                        <option value="">All Departments</option>
-                        <option value="HR" <c:if test="${param.department == 'HR'}">selected</c:if>>HR</option>
-                        <option value="IT" <c:if test="${param.department == 'IT'}">selected</c:if>>IT</option>
-                        <option value="Sales" <c:if test="${param.department == 'Sales'}">selected</c:if>>Sales</option>
-                        <option value="Marketing" <c:if test="${param.department == 'Marketing'}">selected</c:if>>Marketing</option>
-                    </select>
-
-                    <!-- Filter by Position -->
-                    <select name="position">
-                        <option value="">All Positions</option>
-                        <option value="Manager" <c:if test="${param.position == 'Manager'}">selected</c:if>>Manager</option>
-                        <option value="Developer" <c:if test="${param.position == 'Developer'}">selected</c:if>>Developer</option>
-                        <option value="Analyst" <c:if test="${param.position == 'Analyst'}">selected</c:if>>Analyst</option>
-                        <option value="Salesperson" <c:if test="${param.position == 'Salesperson'}">selected</c:if>>Salesperson</option>
-                    </select>
-
-                    <button type="submit">Filter</button>
                 </form>
             </div>
             <div>
@@ -66,6 +42,34 @@
 
             </div>
         </div>
+
+        <div class="filter">
+            <!-- Filter by Department -->
+            <form action="${pageContext.request.contextPath}/filterEmployees" method="get">
+                <select class="button" name="department">
+                    <option value="">All Departments</option>
+                    <option value="HR" <c:if test="${param.department == 'HR'}">selected</c:if>>HR</option>
+                    <option value="IT" <c:if test="${param.department == 'IT'}">selected</c:if>>IT</option>
+                    <option value="Sales" <c:if test="${param.department == 'Sales'}">selected</c:if>>Sales</option>
+                    <option value="Marketing" <c:if test="${param.department == 'Marketing'}">selected</c:if>>Marketing</option>
+                </select>
+
+                <!-- Filter by Position -->
+                <select class="button" name="position">
+                    <option value="">All Positions</option>
+                    <option value="Manager" <c:if test="${param.position == 'Manager'}">selected</c:if>>Manager</option>
+                    <option value="Developer" <c:if test="${param.position == 'Developer'}">selected</c:if>>Developer</option>
+                    <option value="Analyst" <c:if test="${param.position == 'Analyst'}">selected</c:if>>Analyst</option>
+                    <option value="Salesperson" <c:if test="${param.position == 'Salesperson'}">selected</c:if>>Salesperson</option>
+                </select>
+
+                <button class="button" type="submit">
+                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                    Filter
+                </button>
+            </form>
+        </div>
+
 
         <div class="content">
             <div class="content-main">

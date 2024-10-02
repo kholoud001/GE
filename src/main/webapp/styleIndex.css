@@ -33,12 +33,23 @@ body {
     margin-right: auto;
 }
 
+.filter{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-basis: inherit;
+}
+
 .header {
     display: flex;
     align-items: center;
     height: 80px;
     border-bottom: 1px solid var(--c-border-primary);
     background-color: var(--c-background-primary);
+    a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: normal;
+    }
 }
 
 
@@ -76,28 +87,6 @@ body {
     }
 }
 
-.icon-button {
-    font: inherit;
-    color: inherit;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    color: var(--c-text-action);
-    transition: 0.15s ease;
-    i {
-        font-size: 1.25em;
-    }
-
-    &:focus,
-    &:hover {
-        background-color: var(--c-background-tertiary);
-        color: var(--c-accent-primary);
-    }
-}
 
 
 .main {
@@ -109,6 +98,7 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 10px;
 
     h1 {
         font-size: 1.75rem;
@@ -135,13 +125,13 @@ body {
         align-items: center;
         justify-content: center;
         padding: 0 1em 0 36px;
-        height: 40px;
+        height: 50px;
         border-radius: 8px;
         border: 2px solid var(--c-border-primary);
         color: var(--c-text-action);
         font-size: 0.875rem;
         transition: 0.15s ease;
-        width: 100%;
+        width: 150%;
         line-height: 1;
 
         &::placeholder {
