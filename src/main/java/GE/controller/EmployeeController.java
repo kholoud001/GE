@@ -19,29 +19,24 @@ public class EmployeeController extends HttpServlet {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         RequestDispatcher requestDispatcher;
 
-        switch (action) {
-            case "home":
-                requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/home.jsp");
-                break;
-            case "add":
-                requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/employeeForm.jsp");
-                break;
-            case "employees":
-                List<Employee> employeeList = employeeDAO.getAllEmployees();
-                request.setAttribute("employees", employeeList);
-                requestDispatcher = request.getRequestDispatcher("index.jsp");
-                System.out.println("Employee List: " + employeeList);
-                break;
-            default:
-                requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/error.jsp");
-                break;
+        if ("employees".equals(action)) {
+            // Fetch all employees and forward to the main view
+            List<Employee> employeeList = employeeDAO.getAllEmployees();
+            request.setAttribute("employees", employeeList);
+            requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/home.jsp");
+        } else if ("add".equals(action)) {
+            // Forward to the add employee form
+            requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/employeeForm.jsp");
+        } else {
+            // Default case
+            requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/error.jsp");
         }
 
         requestDispatcher.forward(request, response);
     }
 
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         String name = request.getParameter("name");
