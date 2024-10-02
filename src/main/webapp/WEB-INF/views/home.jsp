@@ -44,7 +44,6 @@
         <div class="content">
             <div class="content-main">
                 <div class="card-grid">
-                    <!-- Iterate over employees using JSTL -->
                     <c:forEach var="employee" items="${employees}">
                         <article class="card">
                             <div class="card-header">
@@ -71,7 +70,10 @@
                                 <p>${employee.department}</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#">View more</a>
+                                <a href="displayEmployee?id=${employee.id}">
+                                    View more info
+                                </a>
+
                             </div>
                         </article>
                     </c:forEach>

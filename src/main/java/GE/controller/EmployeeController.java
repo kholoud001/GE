@@ -12,11 +12,11 @@ import java.io.IOException;
 import java.util.List;
 
 public class EmployeeController extends HttpServlet {
+
     private final EmployeeDAO employeeDAO = new EmployeeDAO();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("view");
-        EmployeeDAO employeeDAO = new EmployeeDAO();
         RequestDispatcher requestDispatcher;
 
         switch (action) {
