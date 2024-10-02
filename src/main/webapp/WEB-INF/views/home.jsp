@@ -55,9 +55,14 @@
                                         <i class="fas fa-pen-to-square"></i>
                                     </a>
                                     <!-- Delete Employee -->
-                                    <a href="#">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                    <form action="/GE/employee?view=delete" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                        <input type="hidden" name="id" value="${employee.id}" />
+                                        <button type="submit" class="delete-button">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+
+
                                 </div>
                             </div>
                             <div class="card-body">
