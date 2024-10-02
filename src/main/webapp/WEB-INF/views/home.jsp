@@ -26,10 +26,12 @@
         <div class="main-header">
             <div></div>
             <div class="search">
-                <input type="text" placeholder="Search" />
-                <button type="submit">
-                    <i class="ph-magnifying-glass-bold"></i>
-                </button>
+                <form action="${pageContext.request.contextPath}/searchEmployee" method="get">
+                    <input type="text" name="search" placeholder="Search by name, email, department, or position" value="${param.search}"/>
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
             </div>
             <div>
                 <a href="/GE/employee?view=add">

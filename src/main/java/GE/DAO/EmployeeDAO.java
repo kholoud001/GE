@@ -111,4 +111,30 @@ public class EmployeeDAO {
                 }
                 return employee;
             }
+
+
+    public List<Employee> searchEmployees(String searchTerm) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        List<Employee> employees = null;
+
+        try {
+            // Search by name, email, department, or position
+            String hql = "FROM Employee WHERE name LIKE :searchTerm OR email LIKE :searchTerm OR department LIKE :searchTerm OR position LIKE :searchTerm";
+            Query<Employee> query = session.createQuery(hql, Employee.class);
+            query.setParameter("searchTerm", "%" + searchTerm + "%");
+            employees = query.getResultList();
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
         }
+        return employees;
+    }
+
+
+}
+

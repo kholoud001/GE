@@ -44,10 +44,20 @@
         <servlet-name>UpdateEmployeeServlet</servlet-name>
         <servlet-class>GE.controller.UpdateEmployeeServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>UpdateEmployeeServlet</servlet-name>
         <url-pattern>/UpdateEmployeeServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for search -->
+    <servlet>
+        <servlet-name>EmployeeSearchServlet</servlet-name>
+        <servlet-class>GE.controller.EmployeeSearchServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EmployeeSearchServlet</servlet-name>
+        <url-pattern>/searchEmployee</url-pattern>
     </servlet-mapping>
 
 </web-app>
