@@ -58,7 +58,7 @@
                 </form>
             </div>
             <div>
-                <a href="/GE/employee?view=add">
+                <a href="/GE/addEmployee">
                     <button class="button">
                         <i class="fa-solid fa-plus"></i> Add Employee
                     </button>
@@ -79,7 +79,7 @@
                                         <a href="UpdateEmployeeServlet?id=${employee.id}">
                                             <i class="fas fa-pen-to-square"></i>
                                         </a>
-                                        <form action="/GE/employee?view=delete" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                        <form action="/GE/deleteEmployee" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');">
                                             <input type="hidden" name="id" value="${employee.id}" />
                                             <button type="submit" class="delete-button">
                                                 <i class="fas fa-trash"></i>

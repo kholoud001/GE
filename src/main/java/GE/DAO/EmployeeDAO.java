@@ -119,7 +119,6 @@ public class EmployeeDAO {
         List<Employee> employees = null;
 
         try {
-            // Search by name, email, department, or position
             String hql = "FROM Employee WHERE name LIKE :searchTerm OR email LIKE :searchTerm OR department LIKE :searchTerm OR position LIKE :searchTerm";
             Query<Employee> query = session.createQuery(hql, Employee.class);
             query.setParameter("searchTerm", "%" + searchTerm + "%");
@@ -134,6 +133,48 @@ public class EmployeeDAO {
         }
         return employees;
     }
+
+    public List<Employee> filterEmployees(String department, String position) {
+        List<Employee> employees = new ArrayList<>();
+        Transaction transaction = null;
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+
+            // Build the HQL query with dynamic conditions
+            StringBuilder hql = new StringBuilder("FROM Employee e WHERE 1=1");
+
+            if (department != null && !department.isEmpty()) {
+                hql.append(" AND e.department = :department");
+            }
+            if (position != null && !position.isEmpty()) {
+                hql.append(" OR e.position = :position");
+            }
+
+            // Prepare and set parameters
+            Query<Employee> query = session.createQuery(hql.toString(), Employee.class);
+
+            if (department != null && !department.isEmpty()) {
+                query.setParameter("department", department);
+            }
+            if (position != null && !position.isEmpty()) {
+                query.setParameter("position", position);
+            }
+
+            // Execute query and get results
+            employees = query.getResultList();
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace(); // Log the exception for debugging
+        }
+
+        return employees;
+    }
+
+
 
 
 }

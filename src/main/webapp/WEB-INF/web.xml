@@ -18,15 +18,34 @@
         <param-value>action</param-value>
     </context-param>
 
-    <servlet>
-        <servlet-name>EmployeeController</servlet-name>
-        <servlet-class>GE.controller.EmployeeController</servlet-class>
-    </servlet>
 
+    <servlet>
+        <servlet-name>EmployeesServlet</servlet-name>
+        <servlet-class>GE.controller.EmployeesServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>EmployeeController</servlet-name>
+        <servlet-name>EmployeesServlet</servlet-name>
         <url-pattern>/employee</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <servlet-class>GE.controller.AddEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <url-pattern>/addEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteEmployeeServlet</servlet-name>
+        <servlet-class>GE.controller.DeleteEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteEmployeeServlet</servlet-name>
+        <url-pattern>/deleteEmployee</url-pattern>
+    </servlet-mapping>
+
 
     <!-- Servlet to Display employee info -->
     <servlet>
@@ -59,5 +78,27 @@
         <servlet-name>EmployeeSearchServlet</servlet-name>
         <url-pattern>/searchEmployee</url-pattern>
     </servlet-mapping>
+
+    <!-- Servlet for filter -->
+    <servlet>
+        <servlet-name>FilterEmployeeServlet</servlet-name>
+        <servlet-class>GE.controller.FilterEmployeeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FilterEmployeeServlet</servlet-name>
+        <url-pattern>/filterEmployees</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+
 
 </web-app>

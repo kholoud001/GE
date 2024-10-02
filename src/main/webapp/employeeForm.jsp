@@ -11,7 +11,7 @@
 <div class="form">
     <div class="title">Welcome</div>
     <div class="subtitle">Let's add an employee</div>
-    <form action="employee" method="post">
+    <form action="addEmployee" method="post">
         <div class="input-container ic1">
             <input id="name" name="name" class="input" type="text" placeholder=" " required/>
             <div class="cut cut-short"></div>

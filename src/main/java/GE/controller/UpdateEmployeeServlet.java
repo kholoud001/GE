@@ -54,7 +54,7 @@ public class UpdateEmployeeServlet extends HttpServlet {
 
             employeeDAO.updateEmployee(updatedEmployee);
 
-            response.sendRedirect("employee?view=employees");
+            response.sendRedirect("/GE/employee");
 
         } catch (Exception e) {
             e.printStackTrace();
