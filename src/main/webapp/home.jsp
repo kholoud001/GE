@@ -36,7 +36,7 @@
             </div>
             <div class="filter">
                 <!-- Filter by Department -->
-                <form action="${pageContext.request.contextPath}/filterEmployee" method="get">
+                <form action="${pageContext.request.contextPath}/filterEmployees" method="get">
                     <select name="department">
                         <option value="">All Departments</option>
                         <option value="HR" <c:if test="${param.department == 'HR'}">selected</c:if>>HR</option>

@@ -30,6 +30,5 @@ public class FilterEmployeeServlet extends HttpServlet {
         System.out.println("Position: " + position);
 
 
-        // Forward to the JSP
-        request.getRequestDispatcher("/GE/employee").forward(request, response);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }}
