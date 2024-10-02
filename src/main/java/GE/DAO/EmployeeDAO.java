@@ -148,7 +148,7 @@ public class EmployeeDAO {
                 hql.append(" AND e.department = :department");
             }
             if (position != null && !position.isEmpty()) {
-                hql.append(" OR e.position = :position");
+                hql.append(" AND e.position = :position"); // Change OR to AND
             }
 
             // Prepare and set parameters

@@ -34,7 +34,7 @@ public class DisplayEmployeeServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("employeeInfo.jsp");
             dispatcher.forward(request, response);
         } else {
-            response.sendRedirect("/WEB-INF/views/error.jsp");
+            response.sendRedirect("error.jsp");
         }
     }
 

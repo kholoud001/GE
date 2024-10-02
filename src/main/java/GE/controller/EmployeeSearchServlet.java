@@ -24,6 +24,6 @@ public class EmployeeSearchServlet extends HttpServlet {
             employees = employeeDAO.getAllEmployees();
         }
         request.setAttribute("employees", employees);
-        request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 }
