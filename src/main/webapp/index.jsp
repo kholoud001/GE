@@ -46,6 +46,7 @@
         <div class="content">
             <div class="content-main">
                 <div class="card-grid">
+
                     <c:forEach var="employee" items="${employees}">
                         <article class="card">
                             <div class="card-header">
