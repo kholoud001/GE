@@ -28,7 +28,7 @@
         <url-pattern>/employee</url-pattern>
     </servlet-mapping>
 
-    <!-- Display employee info -->
+    <!-- Servlet to Display employee info -->
     <servlet>
         <servlet-name>DisplayEmployeeServlet</servlet-name>
         <servlet-class>GE.controller.DisplayEmployeeServlet</servlet-class>
@@ -37,6 +37,17 @@
     <servlet-mapping>
         <servlet-name>DisplayEmployeeServlet</servlet-name>
         <url-pattern>/displayEmployee</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for UpdateEmployeeServlet -->
+    <servlet>
+        <servlet-name>UpdateEmployeeServlet</servlet-name>
+        <servlet-class>GE.controller.UpdateEmployeeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateEmployeeServlet</servlet-name>
+        <url-pattern>/UpdateEmployeeServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>
