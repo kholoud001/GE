@@ -27,4 +27,16 @@
         <servlet-name>EmployeeController</servlet-name>
         <url-pattern>/employee</url-pattern>
     </servlet-mapping>
+
+    <!-- Display employee info -->
+    <servlet>
+        <servlet-name>DisplayEmployeeServlet</servlet-name>
+        <servlet-class>GE.controller.DisplayEmployeeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DisplayEmployeeServlet</servlet-name>
+        <url-pattern>/displayEmployee</url-pattern>
+    </servlet-mapping>
+
 </web-app>

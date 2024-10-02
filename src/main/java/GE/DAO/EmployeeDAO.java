@@ -65,7 +65,23 @@ public class EmployeeDAO {
     }
 
 
+    public Employee getEmployeeById(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+        Employee employee = null;
 
-
-
+        try {
+            transaction = session.beginTransaction();
+            employee = session.get(Employee.class, id);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return employee;
+    }
 }
