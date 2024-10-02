@@ -49,10 +49,10 @@
                             <div class="card-header">
                                 <h3>${employee.name}</h3>
                                 <div class="action">
-                                    <!-- Update Employee -->
-                                    <a href="#">
+                                    <a href="UpdateEmployeeServlet?id=${employee.id}">
                                         <i class="fas fa-pen-to-square"></i>
                                     </a>
+
                                     <!-- Delete Employee -->
                                     <form action="/GE/employee?view=delete" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');">
                                         <input type="hidden" name="id" value="${employee.id}" />
