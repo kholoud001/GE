@@ -267,3 +267,96 @@ html {
 }
 
 
+
+/* Container styling */
+.content {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.content-main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.user-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* User info: name and position on the left */
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.user-name:hover {
+    text-decoration: underline;
+}
+
+.user-position {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Action buttons (update and delete) on the right */
+.user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.update-button:hover {
+    color: #007bff; /* Blue for edit */
+}
+
+.delete-button:hover {
+    color: #dc3545; /* Red for delete */
+}
+
+/* Ensure form button styles are reset */
+.delete-form {
+    margin: 0;
+    padding: 0;
+}
+
+/* No employees found styling */
+.content p {
+    font-size: 1.2em;
+    text-align: center;
+    color: #777;
+}
+
+

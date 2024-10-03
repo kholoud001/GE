@@ -74,36 +74,32 @@
         <div class="content">
             <div class="content-main">
                 <c:if test="${not empty employees}">
-                    <div class="card-grid">
+                    <ul class="user-list">
                         <c:forEach var="employee" items="${employees}">
-                            <article class="card">
-                                <div class="card-header">
-                                    <h3>${employee.name}</h3>
-                                    <div class="action">
-                                        <a href="UpdateEmployeeServlet?id=${employee.id}">
-                                            <i class="fas fa-pen-to-square"></i>
-                                        </a>
-                                        <form action="/GE/deleteEmployee" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');">
-                                            <input type="hidden" name="id" value="${employee.id}" />
-                                            <button type="submit" class="delete-button">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p><i class="fa-regular fa-envelope"></i> ${employee.email}</p>
-                                    <p>${employee.position}</p>
-                                    <p>${employee.department}</p>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="displayEmployee?id=${employee.id}">
-                                        View more info
+                            <li class="user-item">
+                                <!-- User Name and Position -->
+                                <div class="user-info">
+                                    <a href="displayEmployee?id=${employee.id}" class="user-name">
+                                            ${employee.name}
                                     </a>
+                                    <span class="user-position">${employee.position}</span>
                                 </div>
-                            </article>
+
+                                <!-- Action Buttons (Update and Delete) -->
+                                <div class="user-actions">
+                                    <a href="UpdateEmployeeServlet?id=${employee.id}" class="action-button update-button">
+                                        <i class="fas fa-pen-to-square"></i>
+                                    </a>
+                                    <form action="/GE/deleteEmployee" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');" class="delete-form">
+                                        <input type="hidden" name="id" value="${employee.id}" />
+                                        <button type="submit" class="action-button delete-button">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </li>
                         </c:forEach>
-                    </div>
+                    </ul>
                 </c:if>
                 <c:if test="${empty employees}">
                     <p>No employees found for the selected filters.</p>

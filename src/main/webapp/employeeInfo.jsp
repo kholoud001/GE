@@ -16,7 +16,9 @@
 <header class="header">
     <div class="header-content responsive-wrapper">
         <div class="header-logo">
-            <h1>Employee Info Page</h1>
+            <a href="<%= request.getContextPath() %>/employee">
+                <h1>Employee Info Page</h1>
+            </a>
         </div>
     </div>
 </header>
