@@ -15,7 +15,11 @@ public class EmployeeDAO {
         Transaction transaction = null;
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
+
+//            session.save(employee.getPosition());
+//            session.save(employee.getDepartment());
             session.save(employee);
+
             transaction.commit();
         }catch (Exception e) {
             if(transaction != null) {
